@@ -1,0 +1,85 @@
+{
+  "name": "skjuridicov24protermux-24",
+  "version": "2.4",
+  "description": "skjuridicov24protermux-24 — App desktop (Windows, Mac, Linux)",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --publish=never",
+    "build:win": "electron-builder --win --x64 --publish=never",
+    "build:mac": "electron-builder --mac --x64 --arm64 --publish=never",
+    "build:linux": "electron-builder --linux --x64 --publish=never"
+  },
+  "build": {
+    "appId": "com.github.skjuridicov24protermux24",
+    "productName": "skjuridicov24protermux-24",
+    "copyright": "© 2026 skjuridicov24protermux-24",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "www/**/*",
+      "!www/package.json",
+      "!www/**/package.json",
+      "!www/**/*.map"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "sign": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "skjuridicov24protermux-24"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "identity": null,
+      "hardenedRuntime": false
+    },
+    "dmg": {
+      "background": null
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Utility",
+      "description": "skjuridicov24protermux-24 — App desktop"
+    },
+    "compression": "normal",
+    "removePackageScripts": true,
+    "nodeGypRebuild": false,
+    "buildDependenciesFromSource": false
+  },
+  "devDependencies": {
+    "electron": "^33.4.0",
+    "electron-builder": "^25.1.8"
+  }
+}
